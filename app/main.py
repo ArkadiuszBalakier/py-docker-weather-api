@@ -6,15 +6,15 @@ import requests
 def get_weather() -> None:
     load_dotenv()
 
-    API_KEY = os.getenv("API_KEY")
-    URL = os.getenv("URL")
-    FILTERING = os.getenv("FILTERING")
+    api_key = os.getenv("API_KEY")
+    url = os.getenv("URL")
+    filtering = os.getenv("FILTERING")
 
-    if not all([API_KEY, URL, FILTERING]):
+    if not all([api_key, url, filtering]):
         print("Missing environment variables. Check -e flags.")
         return
 
-    response = requests.get(f"{URL}/current.json?key={API_KEY}&q={FILTERING}")
+    response = requests.get(f"{url}/current.json?key={api_key}&q={filtering}")
     print(response.json())
 
 
